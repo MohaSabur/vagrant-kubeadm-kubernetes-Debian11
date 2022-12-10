@@ -16,7 +16,7 @@ sudo swapoff -a
 sudo apt-get update -y
 # Install CRI-O Runtime
 
-OS="xUbuntu_20.04"
+OS="Debian_11"
 
 VERSION="1.23"
 
@@ -30,6 +30,7 @@ sudo modprobe overlay
 sudo modprobe br_netfilter
 
 # Set up required sysctl params, these persist across reboots.
+sudo apt-get install curl gpg -y
 cat <<EOF | sudo tee /etc/sysctl.d/99-kubernetes-cri.conf
 net.bridge.bridge-nf-call-iptables  = 1
 net.ipv4.ip_forward                 = 1
